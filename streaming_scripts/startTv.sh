@@ -1,0 +1,12 @@
+#!/bin/sh
+
+CONSTANT_MODE=0
+VARIABLE_MODE=1
+
+BITRATE=10000000
+PEAKBITRATE=$BITRATE
+MODE=0
+
+./setBitrate.sh $BITRATE $PEAKBITRATE $MODE
+sleep 1
+./beginStreams.sh
