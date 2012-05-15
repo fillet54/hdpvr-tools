@@ -1,0 +1,12 @@
+body {
+   background-color: #000;
+}
+
+#controller {
+   float: left;
+   margin-right: 10px;
+}
+
+#controller img {
+   display: block;
+}

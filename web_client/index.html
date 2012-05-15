@@ -1,44 +1,37 @@
 <html>
    <head>
-      <title>Live TV</title>
+      <title>Live TV</title> 
       <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-      <script type="text/javascript">
-         function pressKey(key) 
-         {
-            jQuery.ajax("control.php?command=key " + key);
-         }
-
-         function restartStream()
-         {
-            jQuery.ajax("control.php?reset=true");
-         }
-      </script>
+      <script type="text/javascript" src="js/jquery.confirm.js"></script>
+      <script type="text/javascript" src="js/custom.js"></script>
+      <link rel="stylesheet" type="text/css" href="css/custom.css" />
+      <link rel="stylesheet" type="text/css" href="css/jquery.confirm.css" />
    </head>
-   <body style="background-color:#000; ">
-         <div style="float:left">
-            <img src="images/remoteTop.png" style="display:block" usemap="remoteTopMap">
-            <map id="remoteTopMap" name="remoteTopMap">
-               <area shape="rect" alt="ch_up" coords="7,13,83,122" href="#" onclick='pressKey("ch_up");' />
-               <area shape="rect" alt="ch_dn" coords="8,129,85,237" href="#" onclick='pressKey("ch_dn");' />
-               <area shape="rect" alt="guide" coords="90,13,221,62" href="#" onclick='pressKey("guide");' />
-               <area shape="rect" alt="list" coords="89,72,221,122" href="#" onclick='pressKey("list");' />
-               <area shape="rect" alt="menu" coords="90,131,222,180" href="#" onclick='pressKey("menu");' />
-               <area shape="rect" alt="exit" coords="90,189,221,237" href="#" onclick='pressKey("exit");'/>
-            </map>
-            <img src="images/remoteMiddle.png" style="display:block" usemap="remoteMiddleMap">
-            <map id="remoteMiddleMap" name="remoteMiddleMap">
-               <area shape="circle" alt="red" coords="28,26,16" href="#" onclick='restartStream();'/>
-               <area shape="circle" alt="green" coords="28,71,16" href="#" />
-               <area shape="circle" alt="yellow" coords="28,118,17" href="#" />
-               <area shape="circle" alt="blue" coords="28,161,16" href="#" />
-               <area shape="circle" alt="select" coords="135,91,43" href="#" onclick='pressKey("select");'/>
-               <area shape="poly" alt="up" coords="78,26,135,3,191,26,169,51,132,36,102,51" href="#" onclick='pressKey("up");'/>
-               <area shape="poly" alt="right" coords="198,30,221,90,197,147,174,122,188,88,173,57" href="#" onclick='pressKey("right");'/>
-               <area shape="poly" alt="down" coords="192,152,136,176,75,152,101,129,133,141,169,129" href="#" onclick='pressKey("down");'/>
-               <area shape="poly" alt="left" coords="71,146,50,88,74,28,95,58,83,89,96,124" href="#" onclick='pressKey("left");'/>
-            </map>
-            <img src="images/remoteBottom.png" style="display:block">
-         </div>
-         <video width=720 height=405 src="mystream.m3u8" autoplay controls ></video>
+   <body>
+      <div id="controller">
+         <img src="images/remoteTop.png" usemap="remoteTopMap">
+         <map id="remoteTopMap" name="remoteTopMap">
+            <area shape="rect" alt="ch_up" coords="7,13,83,122" href="#" onclick='pressKey("ch_up");' />
+            <area shape="rect" alt="ch_dn" coords="8,129,85,237" href="#" onclick='pressKey("ch_dn");' />
+            <area shape="rect" alt="guide" coords="90,13,221,62" href="#" onclick='pressKey("guide");' />
+            <area shape="rect" alt="list" coords="89,72,221,122" href="#" onclick='pressKey("list");' />
+            <area shape="rect" alt="menu" coords="90,131,222,180" href="#" onclick='pressKey("menu");' />
+            <area shape="rect" alt="exit" coords="90,189,221,237" href="#" onclick='pressKey("exit");'/>
+         </map>
+         <img src="images/remoteMiddle.png" usemap="remoteMiddleMap">
+         <map id="remoteMiddleMap" name="remoteMiddleMap">
+            <area shape="circle" alt="red" coords="28,26,16" href="#" class="restart" />
+            <area shape="circle" alt="green" coords="28,71,16" href="#" />
+            <area shape="circle" alt="yellow" coords="28,118,17" href="#" />
+            <area shape="circle" alt="blue" coords="28,161,16" href="#" />
+            <area shape="circle" alt="select" coords="135,91,43" href="#" onclick='pressKey("select");'/>
+            <area shape="poly" alt="up" coords="78,26,135,3,191,26,169,51,132,36,102,51" href="#" onclick='pressKey("up");'/>
+            <area shape="poly" alt="right" coords="198,30,221,90,197,147,174,122,188,88,173,57" href="#" onclick='pressKey("right");'/>
+            <area shape="poly" alt="down" coords="192,152,136,176,75,152,101,129,133,141,169,129" href="#" onclick='pressKey("down");'/>
+            <area shape="poly" alt="left" coords="71,146,50,88,74,28,95,58,83,89,96,124" href="#" onclick='pressKey("left");'/>
+         </map>
+         <img src="images/remoteBottom.png">
+      </div>
+      <video width=720 height=405 src="mystream.m3u8" autoplay controls ></video>
    </body>
 </html>
